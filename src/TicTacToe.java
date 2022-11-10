@@ -188,6 +188,12 @@ public class TicTacToe {
         {
             return true;
         }
+        if(board[0][2].equals(player) &&
+                board[1][1].equals(player) &&
+                board [2][0].equals(player))
+        {
+            return true;
+        }
         return false;
     }
 
@@ -252,15 +258,26 @@ public class TicTacToe {
                 board[1][1].equals("X") ||
                 board[2][2].equals("X"))
         {
-            xFlag = true; //three is an x in this col
+            xFlag = true; //three is an x in this diagonal
+        }
+        if(board[0][2].equals("X") ||
+                board[1][1].equals("X") ||
+                board[2][0].equals("X"))
+        {
+            xFlag = true; //three is an x in this diagonal
         }
         if(board[0][0].equals("O") ||
                 board[1][1].equals("O") ||
                 board[2][2].equals("O"))
         {
-            oFlag = true; // there is an O in this col
+            oFlag = true; // there is an O in this diagonal
         }
-
+        if(board[0][2].equals("O") ||
+                board[1][1].equals("O") ||
+                board[2][0].equals("O"))
+        {
+            oFlag = true; // there is an O in this diagonal
+        }
         if(! (xFlag && oFlag) )
         {
             return false; // no tie can still have a col win
@@ -270,9 +287,4 @@ public class TicTacToe {
         return true;
 
     }
-
-
-
-
-
 }
